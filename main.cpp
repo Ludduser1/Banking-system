@@ -98,7 +98,7 @@ int main() {
             }    
         
         case 3: {
-                std::cout << "\n--- WITHDRAWAL ---" << std::endl;
+                std::cout << "--- WITHDRAWAL ---" << std::endl;
                 int accNum;
                 double amount;
                 std::cout << "Enter account number: ";
@@ -113,7 +113,7 @@ int main() {
                         if (amount <= 0) {
                             std::cout << "Invalid amount!" << std::endl;
                         } else if (amount > bank[i].balance) {
-                            std::cout << "Declined! Insufficient funds." << std::endl;
+                            std::cout << "Declined. Insufficient funds." << std::endl;
                         } else {
                             bank[i].balance -= amount;
                             bank[i].history.push_back(transaction("Withdrawal", amount));
@@ -127,7 +127,7 @@ int main() {
             }    
 
             case 4: {
-                std::cout << "\n--- TRANSACTION HISTORY ---" << std::endl;
+                std::cout << "--- TRANSACTION HISTORY ---" << std::endl;
                 int accNum;
                 std::cout << "Enter account number: ";
                 std::cin >> accNum;
@@ -143,11 +143,20 @@ int main() {
                         break;
                     }
                 }
-                if (!found) std::cout << "Account not found!" << std::endl;
+                if (!found) std::cout << "Account not found" << std::endl;
                 break;
             }
+        case 5:
+                std::cout << "Exiting bank system" << std::endl;
+                break;
 
-            
+            default:
+                std::cout << "Invalid input! try again (1-5)." << std::endl;
+                break;
+        }
+
+    } while (choice != 5);      
+    
 
     return 0;
 }
