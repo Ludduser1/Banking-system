@@ -1,32 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
-class transaction {
-public:
-    std::string type;
-    double amount;
-
-    transaction(std::string t, double a) {
-        type = t;
-        amount = a;
-    }
-};
-
-class bankAccount {
-public:
-    int accountNumber;
-    std::string accountName;
-    double balance;
-    std::vector<transaction> history;
-
-    bankAccount (int number, std::string name, double initialDeposit) {
-        accountNumber = number;
-        accountName = name;
-        balance = initialDeposit;
-        history.push_back(transaction("Initial Deposit", initialDeposit));
-    }
-};
+#include "Room.hpp"
+#include "bankAccount.hpp"
 
 int main() {
 
@@ -93,7 +69,7 @@ int main() {
                         break;
                     }
                 }
-                if (!found) std::cout << "Account not found!" << std::endl;
+                if (!found) std::cout << "Account not found" << std::endl;
                 break;
             }    
         
@@ -122,7 +98,7 @@ int main() {
                         break;
                     }
                 }
-                if (!found) std::cout << "Account not found!" << std::endl;
+                if (!found) std::cout << "Account not found" << std::endl;
                 break;
             }    
 
