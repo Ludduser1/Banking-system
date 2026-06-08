@@ -31,8 +31,8 @@ public:
 int main() {
 
     std::vector<bankAccount> bank;
-    bank.push_back(bankAccount(1, "person1", 500));
-    bank.push_back(bankAccount(1, "person2", 750));
+    bank.push_back(bankAccount(1001, "person1", 500));
+    bank.push_back(bankAccount(1002, "person2", 750));
 
     int choice = 0;
 
@@ -88,7 +88,7 @@ int main() {
                         } else {
                             bank[i].balance += amount;
                             bank[i].history.push_back(transaction("Deposit", amount));
-                            std::cout << "Success! New balance: $" << bank[i].balance << std::endl;
+                            std::cout << "New balance: $" << bank[i].balance << std::endl;
                         }
                         break;
                     }
@@ -111,13 +111,13 @@ int main() {
                     if (bank[i].accountNumber == accNum) {
                         found = true;
                         if (amount <= 0) {
-                            std::cout << "Invalid amount!" << std::endl;
+                            std::cout << "Invalid amount" << std::endl;
                         } else if (amount > bank[i].balance) {
                             std::cout << "Declined. Insufficient funds." << std::endl;
                         } else {
                             bank[i].balance -= amount;
                             bank[i].history.push_back(transaction("Withdrawal", amount));
-                            std::cout << "Success! New balance: $" << bank[i].balance << std::endl;
+                            std::cout << "New balance: $" << bank[i].balance << std::endl;
                         }
                         break;
                     }
@@ -127,7 +127,7 @@ int main() {
             }    
 
             case 4: {
-                std::cout << "--- TRANSACTION HISTORY ---" << std::endl;
+                std::cout << "---- TRANSACTION HISTORY ----" << std::endl;
                 int accNum;
                 std::cout << "Enter account number: ";
                 std::cin >> accNum;
